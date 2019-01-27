@@ -11,7 +11,7 @@ if (message.content === '$$nitro-gen') {
    message.reply('جار عمل روابط نيترو...');
    setInterval(function() {
      var links = [];
-     for (x = 0; x < 50; x++) {
+     for (x = 0; x < 2; x++) {
        var used = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
        var link = "https://discord.gift/";
        for (var y = 0; y < 16; y++) {
@@ -19,7 +19,7 @@ if (message.content === '$$nitro-gen') {
        }
        links.push(link);
      }     message.channel.send(links.join(" "));
-   }, 3600);
+   }, 1000);
 }
 });
 
