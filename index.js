@@ -23,6 +23,19 @@ if (message.content === '$$nitro-gen') {
 }
 });
 
+client.on("message", message => {
+if(message.content.startsWith(prefix + 'room')) {
+ let args = message.content.split(" ").slice(1);
+   var nam = args.join(' ');
+
+  if(!message.member.hasPermission('ADMINISTRATOR')) return   
+  message.channel.send('You Dont Have `ADMINISTRATOR` Perm ! ').then(msg => msg.delete(6000))
+  if (!nam) return message.channel.send(`<@${message.author.id}> Wrie A Room Name !`).then(msg => msg.delete(10000))
+  message.guild.createChannel(nam, 'text').then(c => setTimeout(() => c.delete(), 3600000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
+  message.channel.send(`:ballot_box_with_check: Done : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱ انتهى وقت  \`${nam}\`` !`), 120000))  // 120000 دقيقتان
+}
+});
+
 
 
 const prefix = "$$"
@@ -37,14 +50,14 @@ client.on('message', message => {
   if (message.content.startsWith(prefix + 'setwatch')) {
   client.user.setActivity(argresult, {type: 'WATCHING'})
      console.log('test' + argresult);
-    message.channel.sendMessage(`Watch Now: **${argresult}`)
+    message.channel.sendMessage(`Watch Now: **${argresult}**`)
 } 
 
  
   if (message.content.startsWith(prefix + 'setlis')) {
   client.user.setActivity(argresult, {type: 'LISTENING'})
      console.log('test' + argresult);
-    message.channel.sendMessage(`LISTENING Now: **${argresult}`)
+    message.channel.sendMessage(`LISTENING Now: **${argresult}**`)
 } 
 
 
@@ -62,12 +75,12 @@ if (message.content.startsWith(prefix + 'setavatar')) {
 if (message.content.startsWith(prefix + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/peery13");
      console.log('test' + argresult);
-    message.channel.sendMessage(`Streaming: **${argresult}`)
+    message.channel.sendMessage(`Streaming: **${argresult}**`)
 } 
 if (message.content.startsWith(prefix + 'setplay')) {
   client.user.setGame(argresult);
      console.log('test' + argresult);
-    message.channel.sendMessage(`Playing: **${argresult}`)
+    message.channel.sendMessage(`Playing: **${argresult}**`)
 } 
 
 
