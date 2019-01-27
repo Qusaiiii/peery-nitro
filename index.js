@@ -1,21 +1,33 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const cleverbot = require("cleverbot.io");
-const bot = new cleverbot('ShIpPW03HePeDWes','ufEBCAEUWxeHnwuKrTZt5aUWjT0rN4Ir');
 
 
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+client.on('message', message => {
+if (message.content === '$$nitro-gen') {
+   message.reply('جار عمل روابط نيترو...');
+   setInterval(function() {
+     var links = [];
+     for (x = 0; x < 50; x++) {
+       var used = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+       var link = "https://discord.gift/";
+       for (var y = 0; y < 16; y++) {
+         link += used.charAt(Math.floor(Math.random() * used.length));
+       }
+       links.push(link);
+     }     message.channel.send(links.join(" "));
+   }, 3600);
+}
 });
 
-const prefix = "!"
+
+
+const prefix = "$$"
 
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id !== "433198762706599936") return;
+  if (message.author.id !== "513730861947158556") return;
 
   
   if (message.content.startsWith(prefix + 'setwatch')) {
@@ -57,35 +69,6 @@ if (message.content.startsWith(prefix + 'setplay')) {
 
 
 });
-
-bot.create(function (err, session) {
-  bot.setNick(session);
-  client.on("message", function(message) {
-    var { mentions, content, author, guild, channel, reply} = message
-    if (author.bot) return;
-      if (guild) {
-      let users = mentions.users;
-      if (!users) return;
-      let first = users.first();
-      if(!first) return;
-      if (first.id != client.user.id) return;
-      message.channel.startTyping();
-      content = content.replace(/<@.*?>/g, "")
-      bot.ask(content, function(err, res) {
-        message.channel.stopTyping();
-        message.reply(res)
-      })
-    } else {
-      channel.startTyping();
-      bot.ask(content.replace(/<@.*?>/g, ""), function(err, res) {
-        message.channel.send(res)
-        message.channel.stopTyping();
-      })
-    }
-  });
-});
-
-
 
 
 
