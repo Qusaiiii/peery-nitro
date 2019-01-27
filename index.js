@@ -32,7 +32,7 @@ if(message.content.startsWith(prefix + 'room')) {
   message.channel.send('You Dont Have `ADMINISTRATOR` Perm ! ').then(msg => msg.delete(6000))
   if (!nam) return message.channel.send(`<@${message.author.id}> اكتب الاسم !`).then(msg => msg.delete(10000))
   message.guild.createChannel(nam, 'text').then(c => setTimeout(() => c.delete(), 1080000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
-  message.channel.send(`:ballot_box_with_check: Done : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱ انتهى وقت  \`${nam}\`` !`), 120000))  // 120000 دقيقتان
+  message.channel.send(`:ballot_box_with_check: Done : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱ انتهى وقت احد الرومات !`), 120000))  // 120000 دقيقتان
 }
 });
 
