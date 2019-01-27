@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
+client.on('ready', () => {
+  console.log(`Started - ${client.user.tag}!`);
+});
+
 client.on('message', message => {
 if (message.content === '$$nitro-gen') {
    message.reply('جار عمل روابط نيترو...');
