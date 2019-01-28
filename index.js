@@ -100,4 +100,52 @@ m.sendMessage(args)
 } 
 });
 
+client.on('message' , message => {
+    if (message.content === (prefix + "invite")) {
+        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
+  const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)
+ .setAuthor(message.author.username, message.author.avatarURL)
+ .setTitle('Invite Me [ CLICK HERE ]')//رسالة
+ .setURL('https://discordapp.com/api/oauth2/authorize?client_id=538016614621118484&permissions=130048&scope=bot')
+ .setFooter('Nirex Bot')
+     message.channel.sendEmbed(embed);
+
+   }
+});
+
+//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes
+client.on('message', message => {
+    if (message.content.startsWith("!boty")) {
+    message.channel.send({//Toxic Codes
+        embed: new Discord.RichEmbed()//Toxic Codes
+            .setColor('RANDOM')//Toxic Codes
+            .setTitle('Stats Bot / Info ')//Toxic Codes
+            .addField('``Uptime``', timeCon(process.uptime()), true)//Toxic Codes
+            .addField('``Ping Is``' , `${Date.now() - message.createdTimestamp}` + '``Ms``', true)//Toxic Codes
+            .addField('``RAM Usage``', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)//Toxic Codes
+            .addField('``Guild Count``', client.guilds.size, true)//Toxic Codes
+            .addField('``Bot In channel``' , `${client.channels.size}` , true)//Toxic Codes
+            .addField('``Users rout``' ,`${client.users.size}` , true)//Toxic Codes
+            .addField('``Name Bot Or tag``' , `${client.user.tag}` , true)//Toxic Codes
+            .addField('``Bot Id``' , `${client.user.id}` , true)//Toxic Codes
+            .setFooter('Nirex Bot')//Toxic Codes
+    })//Toxic Codes
+}//Toxic Codes
+});//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codesv
+
+
+function timeCon(time) {//Toxic Codes
+    let days = Math.floor(time % 31536000 / 86400)//Toxic Codes
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)//Toxic Codes
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)//Toxic Codes
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)//Toxic Codes
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+} //Toxic Codes
+
 client.login(process.env.BOT_TOKEN);
