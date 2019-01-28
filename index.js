@@ -7,8 +7,10 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-if (message.content === '!nitro') {
-     if(!message.author.id === '513730861947158556') return;
+    if (!message.content.startsWith(prefix)) return;
+  if (message.author.id !== "513730861947158556") return;
+if (message.content === prefix + 'nitro') {
+
 
    setInterval(function() {
      var links = [];
