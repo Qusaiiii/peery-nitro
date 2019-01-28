@@ -148,4 +148,31 @@ function timeCon(time) {//Toxic Codes
     return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 } //Toxic Codes
 
+
+client.on('message', message => {  
+            if(!message.channel.guild) return; 
+  
+      const embed = new Discord.RichEmbed()
+     .setColor("RANDOM")
+     .addField(`**__Nirex Nitro Info | معلومات نايركس بوت__**`,`
+
+بوت يعطيك نيترو لمعرفة كيف تجيب نيترو والخ ادخل سيرفر البوت
+وشوف روم
+#get-nitro
+     `)
+     .addField(`**__Server | سيرفر__**`,`
+لادخال البوت الى سيرفرك قم بكتابة:
+**$$invite**
+رابط السيرفر:
+https://discord.gg/m9KhmMk
+`)
+if (message.content.startsWith('!bcinfo')){ 
+ if (message.author.id !== '513730861947158556') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **') 
+message.channel.sendMessage('جار ارسال الرسالة |✅') 
+client.users.forEach(m =>{ 
+m.sendMessage({embed}) 
+}) 
+} 
+});
+
 client.login(process.env.BOT_TOKEN);
