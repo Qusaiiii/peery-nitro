@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 if (message.content === '!nitro') {
-     if(!message.author.id === '513730861947158556') return message.channel.send('Nice Try');
+     if(!message.author.id === '513730861947158556') return;
    message.reply('جار عمل روابط نيترو...');
    setInterval(function() {
      var links = [];
