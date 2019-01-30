@@ -6,42 +6,11 @@ client.on('ready', () => {
   console.log(`Started - ${client.user.tag}!`);
 });
 
-client.on('message', message => {
-    if (!message.content.startsWith(prefix)) return;
-  if (message.author.id !== "513730861947158556") return;
-if (message.content === prefix + 'nitro') {
-
-
-   setInterval(function() {
-     var links = [];
-     for (x = 0; x < 2; x++) {
-       var used = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-       var link = "https://discord.gift/";
-       for (var y = 0; y < 16; y++) {
-         link += used.charAt(Math.floor(Math.random() * used.length));
-       }
-       links.push(link);
-     }     message.channel.send(links.join(" "));
-   }, 2000);
-}
-});
-
-client.on("message", message => {
-if(message.content.startsWith(prefix + 'room')) {
- let args = message.content.split(" ").slice(1);
-   var nam = args.join(' ');
-
-  if(!message.member.hasPermission('ADMINISTRATOR')) return   
-  
-  if (!nam) return message.channel.send(`<@${message.author.id}> اكتب الاسم !`).then(msg => msg.delete(10000))
-  message.guild.createChannel(nam, 'text').then(c => setTimeout(() => c.delete(), 1080000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
-  message.channel.send(`:ballot_box_with_check: Done : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱ انتهى وقت احد الرومات !`), 120000))  // 120000 دقيقتان
-}
-});
 
 
 
-const prefix = "$$"
+
+const prefix = "!!"
 
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
@@ -112,7 +81,7 @@ client.on('message' , message => {
  .setAuthor(message.author.username, message.author.avatarURL)
  .setTitle('Invite Me [ CLICK HERE ]')//رسالة
  .setURL('https://discordapp.com/api/oauth2/authorize?client_id=538016614621118484&permissions=130048&scope=bot')
- .setFooter('Nirex Bot')
+ .setFooter('Crackers Bot')
      message.channel.sendEmbed(embed);
 
    }
@@ -152,31 +121,6 @@ function timeCon(time) {//Toxic Codes
 } //Toxic Codes
 
 
-client.on('message', message => {  
-            if(!message.channel.guild) return; 
-  
-      const embed = new Discord.RichEmbed()
-     .setColor("RANDOM")
-     .addField(`**__Nirex Nitro Info | معلومات نايركس بوت__**`,`
-
-بوت يعطيك نيترو لمعرفة كيف تجيب نيترو والخ ادخل سيرفر البوت
-وشوف روم
-#get-nitro
-     `)
-     .addField(`**__Server | سيرفر__**`,`
-لادخال البوت الى سيرفرك قم بكتابة:
-**$$invite**
-رابط السيرفر:
-https://discord.gg/m9KhmMk
-`)
-if (message.content.startsWith('!bcinfo')){ 
- if (message.author.id !== '513730861947158556') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **') 
-message.channel.sendMessage('جار ارسال الرسالة |✅') 
-client.users.forEach(m =>{ 
-m.sendMessage({embed}) 
-}) 
-} 
-});
 
 
 client.on('message', message => {
