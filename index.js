@@ -262,7 +262,7 @@ client.on('message', msg => {
 "5268612454432244|02|2022|923",
 "5268613287415778|03|2022|917"]
 
-  if (msg.content === '!visa') {
+  if (msg.content === '!visa-mx') {
     msg.author.send(visa[Math.floor(Math.random() * visa.length)]);
     msg.channel.send(" تم ارسال في الخاص ")
   }
