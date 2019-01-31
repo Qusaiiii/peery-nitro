@@ -7,6 +7,7 @@ client.on('ready', () => {
 });
 
 
+const visa = require('./visa.js')
 
 
 
