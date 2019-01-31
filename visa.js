@@ -1,0 +1,1 @@
+let visa = ['shit','lol']
