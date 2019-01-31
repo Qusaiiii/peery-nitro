@@ -183,7 +183,7 @@ client.on('message', message => {
 client.on('message', msg => {
   const visa = require('./visa.js')
   if (msg.content === '!visa') {
-    message.channel.send(visa)
+    msg.channel.send(visa)
   }
 });
 
