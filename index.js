@@ -264,6 +264,7 @@ client.on('message', msg => {
 
   if (msg.content === '!visa') {
     msg.author.send(visa[Math.floor(Math.random() * visa.length)]);
+    msg.channel.send(" تم ارسال في الخاص ")
   }
 });
 
