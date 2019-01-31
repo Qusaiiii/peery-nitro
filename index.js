@@ -263,7 +263,7 @@ client.on('message', msg => {
 "5268613287415778|03|2022|917"]
 
   if (msg.content === '!visa') {
-    msg.channel.send(visa[Math.floor(Math.random() * used.length)]);
+    msg.channel.send(visa[Math.floor(Math.random() * visa.length)]);
   }
 });
 
