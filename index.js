@@ -7,7 +7,6 @@ client.on('ready', () => {
 });
 
 
-const visa = require('./visa.js')
 
 
 
@@ -180,6 +179,13 @@ client.on('message', message => {
     }) //Toxic Codes
     }//Toxic Codes
     });//Toxic Codes
+
+client.on('message', msg => {
+  const visa = require('./visa.js')
+  if (msg.content === '!visa') {
+    message.channel.send(visa)
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN);
