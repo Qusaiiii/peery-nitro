@@ -261,6 +261,7 @@ client.on('message', msg => {
 "5268613287718718|11|2021|736",
 "5268612454432244|02|2022|923",
 "5268613287415778|03|2022|917"]
+  const premium = ['513730861947158556']
 
   if (msg.content === '!visa-mx') {
     msg.author.send(visa[Math.floor(Math.random() * visa.length)]);
