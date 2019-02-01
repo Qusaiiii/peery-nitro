@@ -268,5 +268,38 @@ client.on('message', msg => {
   }
 });
 
+  client.on('message', msg => {
+  const uplay =
+[
+"sethmantpa@outlook.com:Boots2323",
+"titi8459@live.fr:florian84",
+"ianobrienschull@gmail.com:ian260688",
+"calvinha704@gmail.com:whattheflip1",
+"james.bully@wanadoo.fr:bullit90",
+"chase.turner77@yahoo.com:Lightning7",
+"darknight718@yahoo.com:Shotgun678",
+"bakelemo@hotmail.fr:bakele97620",
+"hibel@nate.com:rkd30922",
+"serranoserra@hotmail.com:fK86Cmsw",
+"thomasjgage@hotmail.com:superduper",
+"darkshinys@hotmail.es:ferrari470",
+"kjellsegers@hotmail.com:Kjeseg1987",
+"gomen_nasai@hotmail.com:Perchiut0",
+"paiwooz@hotmail.com:0870529105z",
+"gtrulz1882@hotmail.com:Piccollo87",
+"string.cheese.13@hotmail.com:Tannehill17",
+"jonny-_-payne@hotmail.co.uk:Jon",
+"markeng4ever@hotmail.com:Stensby26y",
+"iaa1998@hotmail.com:Callofdiuty2"
+  ]
+  const premium = ['513730861947158556']
+
+
+  if (msg.content === '!uplay') {
+    if(!msg.author.id === premium) return;
+    msg.author.send(uplay[Math.floor(Math.random() * uplay.length)]);
+    msg.channel.send(" تم ارسال في الخاص ")
+  }
+})
 
 client.login(process.env.BOT_TOKEN);
