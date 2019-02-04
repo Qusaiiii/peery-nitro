@@ -189,9 +189,10 @@ client.on('message', msg => {
     
   if(cooldown.has(msg.author.id)) {
     msg.delete();
-    msg.reply("لازم تنتظر يوم");
+   return msg.reply("لازم تنتظر يوم");
 
   }
+    msg.channel.send("test");
     cooldown.add(msg.author.id)
 
 setTimeout(() => {
