@@ -191,7 +191,8 @@ client.on('message', msg => {
         
     
   if(cooldown.has(msg.author.id)) {
-    
+        msg.reply('test');
+
     msg.delete();
    return msg.reply("لازم تنتظر يوم");
 
