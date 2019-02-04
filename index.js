@@ -183,13 +183,16 @@ client.on('message', message => {
 
 
   
-let pingcdd = new Set()
+let ping = new Set()
 client.on('message', msg => {
-  if (msg.content === 'pingg') {
-  if(pingcdd.has(msg.author.id)) return; //cooldown
-pingcdd.add(msg.author.id)
+  if (msg.content === 'ping') {
+  if(ping.has(msg.author.id)) {
+    msg.delete();
+    msg.replay("لازم تنتظر يوم");
+  }
+ping.add(msg.author.id)
     msg.reply('Pong!');
-setTimeout(() => { pingcdd.delete(msg.author.id) }, 86400000);
+setTimeout(() => { ping.delete(msg.author.id) }, 86400000);
   }
 });
 client.login(process.env.BOT_TOKEN);
