@@ -181,4 +181,13 @@ client.on('message', message => {
     });//Toxic Codes
 
 
+client.on('message', msg => {
+  let pingcd = new Set()
+  if (msg.content === '$test') {
+  if(pingcd.has(msg.author.id)) return msg.channel.send("انتظر يوم لاستخدام الامر مرة اخرى");
+pingcd.add(msg.author.id)
+    msg.reply('Pong!');
+setTimeout(() => { pingcd.delete(msg.author.id) }, 86400000);
+  }
+});
 client.login(process.env.BOT_TOKEN);
