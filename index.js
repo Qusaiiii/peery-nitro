@@ -181,14 +181,15 @@ client.on('message', message => {
     });//Toxic Codes
 
 
-let pingcd = new Set()
+
+  
+let pingcdd = new Set()
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-  if(pingcd.has(msg.author.id)) return; //cooldown
-pingcd.add(msg.author.id)
+  if (msg.content === 'pingg') {
+  if(pingcdd.has(msg.author.id)) return; //cooldown
+pingcdd.add(msg.author.id)
     msg.reply('Pong!');
-setTimeout(() => { pingcd.delete(msg.author.id) }, 86400000);
+setTimeout(() => { pingcdd.delete(msg.author.id) }, 86400000);
   }
 });
-  
 client.login(process.env.BOT_TOKEN);
