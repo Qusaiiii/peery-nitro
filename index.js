@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const config = require("./config.json");
 const client = new Discord.Client();
 
 
@@ -195,4 +196,17 @@ ping.add(msg.author.id)
 setTimeout(() => { ping.delete(msg.author.id) }, 86400000);
   }
 });
+
+client.on('message', msg => {
+  
+  const visa = (config.visa);
+
+
+
+  if (msg.content === '!test-ra') {
+    msg.author.send(visa[Math.floor(Math.random() * visa.length)]);
+    msg.channel.send(" تم ارسال في الخاص ")
+  }
+});
+
 client.login(process.env.BOT_TOKEN);
