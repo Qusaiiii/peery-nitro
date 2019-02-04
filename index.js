@@ -188,7 +188,7 @@ client.on('message', msg => {
   if (msg.content === 'ping') {
   if(ping.has(msg.author.id)) {
     msg.delete();
-    msg.replay("لازم تنتظر يوم");
+    return msg.reply("لازم تنتظر يوم");
   }
 ping.add(msg.author.id)
     msg.reply('Pong!');
