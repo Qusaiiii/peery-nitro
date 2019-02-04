@@ -181,30 +181,14 @@ client.on('message', message => {
     });//Toxic Codes
 
 
+let pingcd = new Set()
 client.on('message', msg => {
-  
-   let cooldown = new Set()
-   
-  let cdseconds = 5;
-  
-  if (msg.content === '$test') {
-        
-    
-  if(cooldown.has(msg.author.id)) {
-        msg.reply('test');
-
-    msg.delete();
-   return msg.reply("لازم تنتظر يوم");
-
+  if (msg.content === 'ping') {
+  if(pingcd.has(msg.author.id)) return; //cooldown
+pingcd.add(msg.author.id)
+    msg.reply('Pong!');
+setTimeout(() => { pingcd.delete(msg.author.id) }, 86400000);
   }
-  cooldown.add(msg.author.id)
-    
-setTimeout(() => {
-  
-cooldown.delete(msg.author.id)
-  }, cdseconds * 86400000)
-   }
 });
-
   
 client.login(process.env.BOT_TOKEN);
