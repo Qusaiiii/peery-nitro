@@ -182,22 +182,28 @@ client.on('message', message => {
 
 
 client.on('message', msg => {
+  
    let cooldown = new Set()
+   
   let cdseconds = 5;
   
   if (msg.content === '$test') {
-        msg.reply('Pong!');
+        
     
   if(cooldown.has(msg.author.id)) {
+    
     msg.delete();
    return msg.reply("لازم تنتظر يوم");
 
   }
   cooldown.add(msg.author.id)
+    
 setTimeout(() => {
+  
 cooldown.delete(msg.author.id)
   }, cdseconds * 86400000)
-           
+   }
+});
 
   
 client.login(process.env.BOT_TOKEN);
