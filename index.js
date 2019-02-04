@@ -179,25 +179,25 @@ client.on('message', message => {
     }) //Toxic Codes
     }//Toxic Codes
     });//Toxic Codes
-   let cooldown = new Set()
-  let cdseconds = 5;
+
 
 client.on('message', msg => {
-
+   let cooldown = new Set()
+  let cdseconds = 5;
   
   if (msg.content === '$test') {
+        msg.reply('Pong!');
     
   if(cooldown.has(msg.author.id)) {
     msg.delete();
    return msg.reply("لازم تنتظر يوم");
 
   }
-    msg.channel.send("test");
-    cooldown.add(msg.author.id)
-
+  cooldown.add(msg.author.id)
 setTimeout(() => {
 cooldown.delete(msg.author.id)
   }, cdseconds * 86400000)
            
 });
+  
 client.login(process.env.BOT_TOKEN);
