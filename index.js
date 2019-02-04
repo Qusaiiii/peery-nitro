@@ -198,6 +198,6 @@ setTimeout(() => {
 cooldown.delete(msg.author.id)
   }, cdseconds * 86400000)
            
-});
+
   
 client.login(process.env.BOT_TOKEN);
