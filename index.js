@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require("./config.json");
+
 const client = new Discord.Client();
 
 
@@ -73,20 +73,6 @@ m.sendMessage(args)
 } 
 });
 
-client.on('message' , message => {
-    if (message.content === (prefix + "invite")) {
-        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
-  const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)
- .setAuthor(message.author.username, message.author.avatarURL)
- .setTitle('Invite Me [ CLICK HERE ]')//رسالة
- .setURL('https://discordapp.com/api/oauth2/authorize?client_id=538016614621118484&permissions=130048&scope=bot')
- .setFooter('Crackers Bot')
-     message.channel.sendEmbed(embed);
-
-   }
-});
 
 //Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes//Toxic Codes
 client.on('message', message => {
@@ -182,31 +168,5 @@ client.on('message', message => {
     });//Toxic Codes
 
 
-
-  
-let ping = new Set()
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-  if(ping.has(msg.author.id)) {
-    msg.delete();
-    return msg.reply("لازم تنتظر يوم");
-  }
-ping.add(msg.author.id)
-    msg.reply('Pong!');
-setTimeout(() => { ping.delete(msg.author.id) }, 86400000);
-  }
-});
-
-client.on('message', msg => {
-  
-  const visa = (config.visa);
-
-
-
-  if (msg.content === '!test-ra') {
-    msg.author.send(visa[Math.floor(Math.random() * visa.length)]);
-    msg.channel.send(" تم ارسال في الخاص ")
-  }
-});
 
 client.login(process.env.BOT_TOKEN);
